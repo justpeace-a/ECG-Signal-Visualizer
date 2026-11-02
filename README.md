@@ -60,6 +60,12 @@ Through this project, I gained practical experience in:
 - Calculating heart rate from RR intervals.
 - Visualizing and analyzing real physiological data.
 
+## ECG Visualization Result
+
+The graph below shows a real ECG recording from the MIT-BIH Arrhythmia Database (Record 100), with detected R peaks and an estimated heart rate of 75.1 BPM.
+
+![Real ECG visualization](real_ecg_graph.png)
+
 ## Disclaimer
 
 This project is intended for educational purposes and is not designed for clinical diagnosis.
