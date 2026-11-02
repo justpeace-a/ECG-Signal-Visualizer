@@ -21,7 +21,7 @@ real_ecg = record.p_signal[:, 0]
 real_time = np.arange(len(real_ecg)) / record.fs
 
 # Detect ECG peaks that are at least 0.4 secs apart
-peaks, properties = find_peaks(real_ecg, distance=int(0.4 * record.fs), prominence=0.5, height=1.0) #distance must be at least 0.4 seconds apart, prominence=0.5(peaks must stand out from their surroundings), and height(peaks must reach atleast 1.0 mV)
+peaks, properties = find_peaks(real_ecg, distance=int(0.4 * record.fs), prominence=0.5, height=0.6) #distance must be at least 0.4 seconds apart, prominence=0.5(peaks must stand out from their surroundings), and height(peaks must reach atleast 0.6 mV)
 peak_times = real_time[peaks] #Get R peak times in seconds
 
 #Calculate RR intervals
@@ -48,4 +48,8 @@ plt.title("Real ECG Signal (MIT-BIH Record 100)",
 plt.grid(True)
 plt.text(0.98, 0.94, f"Heart Rate: {heart_rate:.1f} bpm", transform=plt.gca().transAxes, fontsize=10, family="Arial", fontweight="bold", color="#030b51", ha="right")
 plt.legend()
+
+# Save ECG graph
+plt.savefig("real_ecg_graph.png", dpi=300, bbox_inches="tight")
+
 plt.show()
